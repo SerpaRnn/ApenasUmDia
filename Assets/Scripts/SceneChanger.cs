@@ -7,7 +7,7 @@ public class SceneChanger : MonoBehaviour
 {
     public Animator animator;
 
-    public int levelToLoad;
+    private int levelToLoad;
 
     // Start is called before the first frame update
     void Start()
@@ -30,5 +30,10 @@ public class SceneChanger : MonoBehaviour
     public void NextLevel()
     {
         FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void OnFadeComplete()
+    {
+        SceneManager.LoadScene(levelToLoad);
     }
 }
